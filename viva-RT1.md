@@ -244,7 +244,7 @@ Specific agreement with detailed delivery plan
 
 
 
-contract
+ contract
 scheduling
 ME31K
 ME31L
@@ -261,7 +261,7 @@ Cannot be created through MRP
 Cna be created through MRP
 
 
-CONTRACT 
+## CONTRACT 
 Contract is a long-term agreement with the vendor for the supply of goods and services at specific prices and terms but the exact delivery schedule and quantity is not confirmed at the time of creation. 
 
 Inform material / service quantity 
