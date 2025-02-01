@@ -643,7 +643,7 @@ Industry Classification
    * Purchase Order History (Previous transactions, performance evaluation, etc.)
 
 
-   **ACCOUNT GROUP** 
+   ### ⚡ **ACCOUNT GROUP** 
 
    An Account Group in SAP MM is a classification tool used to define the characteristics and number ranges of Vendor Master Records. It determines which fields are mandatory, optional, or hidden when creating a vendor.
 
@@ -658,6 +658,257 @@ Industry Classification
 ![ddewe](./photos/11.png)
 ![ddewe](./photos/12.png)
 
-## ⭐ NUMBER ASSIGNMENT
+### ⚡ NUMBER ASSIGNMENT
 
 ![ddewe](./photos/13.png)
+
+Define Account Groups: `OBD3`
+
+Assign Number Ranges to Vendor Account Groups: `OBAS`
+
+
+### ⚡**FIELD SELECTION**
+
+Field Selection in SAP MM controls which fields appear as mandatory, optional, display-only, or hidden when maintaining master data (e.g., Material Master, Vendor Master, Purchasing Documents, etc.).
+
+![frmo](./photos/14.png)
+
+### ⚡ **RENCONCILIATION**
+
+What is a Reconciliation Account?
+A Reconciliation Account in SAP is a General Ledger (G/L) account that connects sub-ledgers (e.g., Vendor Accounts in Accounts Payable) to the main ledger (General Ledger - FI module).
+
+🔹 It ensures that all vendor transactions (purchases, invoices, payments) are automatically posted to the correct G/L accounts in Financial Accounting (FI).
+
+🔹 Vendors do not post directly to G/L accounts; instead, they post to vendor sub-ledgers, which in turn update the reconciliation account in FI.
+
+* ✅ Ensures real-time financial integration between MM & FI.
+
+* ✅ Helps in automatic financial posting for vendor transactions.
+* ✅ Eliminates the need for manual entries in the General Ledger.
+* ✅ Maintains data consistency across FI and MM modules.
+
+1️⃣ A Purchase Order (PO) is created in SAP MM.
+
+2️⃣ A Goods Receipt (GR) is posted, and inventory accounts are updated.
+
+3️⃣ An Invoice is received → The vendor account is credited.
+
+4️⃣ The Reconciliation Account (FI) is updated automatically with the vendor balance.
+
+5️⃣ Vendor Payment is made → The amount is cleared from the Reconciliation Account.
+
+🔹 Example: If a vendor invoice of ₹10,000 is posted, SAP automatically updates:
+
+Vendor Account (Credit ₹10,000) → Sub-ledger
+Reconciliation Account (G/L) (Credit ₹10,000) → Main Ledger
+
+![demo](./photos/15.png)
+
+### ⚡ PARTNER ROLES 
+
+In SAP MM (Materials Management), Partner Roles are used to define the different roles that an entity (like a vendor or customer) plays in a business process. These roles help determine the relationship between the business partner (e.g., vendor, customer) and the company in various transactions.
+
+| **Partner Role**       | **Description**                                                                |
+|------------------------|--------------------------------------------------------------------------------|
+| **VN (Vendor)**         | The main partner in procurement; the entity supplying the goods/services.      |
+| **WE (Goods Supplier)** | The partner who delivers goods (could be different from the vendor in some cases). |
+| **RE (Payee)**          | The partner receiving payments (often the vendor or an agent).                |
+| **OA (Ordering Address)**| The partner who receives the order (can be the vendor or a specific department). |
+| **IV (Invoice Address)** | The partner who receives invoices related to the transaction.                |
+| **GR (Goods Receipt)**  | The partner associated with goods receipt (not always used in every business scenario). |
+
+---
+
+**CONFIGURATION OF VENDOR MASTER**
+
+* account groups for vendors 
+
+* field selection 
+* number assignment 
+* levels for vendor data 
+* partner roles 
+
+ **1. Different Organization Levels of Vendor Master**
+
+The **Vendor Master** in SAP MM is structured into different levels based on the scope and relevance of the data. The organization levels define where the data will be applicable, ranging from a global level (valid for all company codes) to more specific levels.
+
+The main **organization levels** for vendor master records are:
+
+- **Client Level**: Data at the client level is global and applicable across all company codes. Information such as the **vendor's name** and **address** is maintained at this level.
+- **Company Code Level**: Data specific to each company code is maintained at this level. It includes the **vendor’s bank details**, **payment terms**, and **reconciliation accounts**.
+- **Purchasing Organization Level**: Data at this level is relevant to procurement activities and includes **partner functions** like **ordering address**, **invoice address**, and **payment terms**.
+
+---
+
+ **2. Significance of Account Group**
+
+The **Account Group** in the vendor master is a crucial element in SAP MM, and its significance lies in:
+
+- **Defining the Number Range**: The account group determines the **number range** for vendor accounts, allowing automatic assignment of vendor account numbers (either internal or external).
+- **Controlling Fields**: The account group controls which fields are required, optional, or suppressed when creating or maintaining a vendor master record. Different account groups allow for different sets of required fields based on business needs.
+- **Determining Vendor Type**: It helps in categorizing vendors into groups like **external vendors**, **one-time vendors**, and **internal vendors**. The account group helps configure the behavior of the vendor in terms of financial and procurement processes.
+
+---
+
+ **3. Functionality of Partner Functions**
+
+In SAP MM, **Partner Functions** define the different roles a business partner (like a vendor) can play in a transaction. The main functionality of partner functions includes:
+
+- **Role Assignment**: Each partner (vendor) can be assigned multiple roles like **Ordering Address**, **Invoice Address**, **Payee**, **Goods Supplier**, etc. This ensures that the correct party is associated with each part of the process.
+- **Transaction Control**: Partner functions control how transactions are handled, such as whether a vendor is used for ordering goods or receiving payments.
+- **Flexibility**: They enable flexibility by allowing different partners to handle different parts of the business process (e.g., one partner can be the supplier, another the invoice address).
+  
+For example, in a **purchase order (PO)**, the **vendor** plays the role of the **ordering address**, but the **invoice address** could be a different entity, allowing separation of responsibilities.
+
+---
+ **4. Reconciliation Account and Uses**
+
+A **Reconciliation Account** is a **general ledger (G/L) account** used to aggregate subledger balances from specific vendors. It ensures that transactions are properly reflected in the general ledger for **accounting purposes**.
+
+#### **Uses of Reconciliation Account**:
+- **Automatic Posting**: When vendor transactions (like invoices or payments) are posted in the system, the reconciliation account is automatically updated, making financial reporting and analysis easier.
+- **Financial Integration**: It links **Material Management (MM)** to **Financial Accounting (FI)**, ensuring that vendor transactions are reflected correctly in the financial statements.
+- **Tracking Vendor Balances**: It provides a summary view of all transactions for a vendor in the financial accounts, and it prevents manual updates to the G/L, which reduces errors.
+
+For example, when a vendor’s invoice is posted, the **vendor sub-ledger account** is updated, and the **reconciliation account** in the G/L is also updated automatically.
+
+---
+
+ **5. Different Levels of Vendor Master**
+
+There are **three main levels** in the vendor master record:
+
+- **Client Level**: This level holds **general information** about the vendor such as name, address, and communication data. This data is applicable across all company codes and purchasing organizations.
+- **Company Code Level**: Information specific to the company code is maintained at this level, including **payment terms**, **bank details**, and **tax information**.
+- **Purchasing Organization Level**: Information relevant to procurement activities is maintained at this level, including **partner functions**, **order data**, and **payment terms** specific to purchasing.
+
+---
+
+**6. Is it Possible to Create Both Internal and External Number Ranges for the Same Vendor Account Group?**
+
+Yes, it is possible to configure both **internal and external number ranges** for the **same vendor account group** in SAP. 
+
+- **Internal Number Range**: SAP automatically assigns numbers to vendor accounts when a vendor is created.
+- **External Number Range**: The user manually assigns a number to the vendor when creating the vendor master record.
+
+To create both number ranges for the same account group:
+
+1. **Go to T-Code**: `SPRO` → **IMG** → **Financial Accounting (FI)** → **Accounts Payable** → **Vendor Accounts** → **Define Account Group and Number Range**.
+2. Configure **number ranges** for each account group, specifying whether they are **internal** or **external**.
+
+This allows flexibility in managing different types of vendors, especially when dealing with **one-time vendors** or **local/foreign vendors**.
+
+---
+
+ **7. How to Block a Vendor in SAP MM**
+
+Vendors can be blocked at the **vendor master** level to prevent any procurement or payment activities. There are two main types of blocks:
+
+1. **Purchasing Block**: Prevents the vendor from being used in procurement transactions.
+2. **Payment Block**: Prevents payments from being made to the vendor.
+
+ **Steps to Block a Vendor**:
+
+1. **Go to T-Code**: `XK02` (Change Vendor) or `MK02` (Change Vendor for Purchasing Organization).
+2. Enter the **Vendor Number** and **Company Code**.
+3. Navigate to the **Payment Transactions** or **Purchasing Data** tab.
+4. Under the **Status** section, set the appropriate block (e.g., **Purchasing Block**, **Payment Block**).
+5. **Save** the changes to block the vendor.
+
+By blocking a vendor, you ensure that no further transactions are processed for that vendor until the block is removed.
+
+## ⭐ PURCHASE INFO RECORD 
+
+
+*  Material Master and Vendor Master Record are used to store material specific information and vendor specific details, respectively.
+
+* Whereas purchasing info record contains information about a specific material and a vendor supplying the
+material.
+* It can be maintained at purchasing organization level or plant specific, as per the business requirements.
+*  The “Purchasing Info record” is used to store the combination a Material and Vendor with the pricing details for
+the specific period of time, planned delivery time
+* It serves as a source of information for Purchasing.
+
+![demo](./photos/16.png)
+
+**PRE REQUISITE**
+
+* material master 
+
+* vendor master 
+
+---
+
+* price 
+
+* Tax 
+
+* order unit 
+
+* planned delivery time 
+* tolerance 
+* conference control data
+
+---
+
+* PIR can created from outline agreemnt / quotation , PO
+
+* PIR can be automatically from contract
+* PIR can be updated from outline agreement / quotation, PO
+
+**❓ QUESTION**
+
+1. organization level for purchase info record 
+
+* client level
+
+* company code 
+
+* plant 
+
+* purchasing organization 
+
+
+2. list of ways PIR can be created 
+
+* ME11 - create purchase info record 
+
+* ME51 - mass creation 
+
+* ME1M - automatically 
+
+* via purchase order, contracts
+
+
+What types of various purchasing information records we maintained in SAP?
+
+* standard 
+
+* consignment 
+* subcontracting 
+* pipeline 
+
+What are the different organization levels PIR are created?
+
+* client 
+
+* company code 
+* plant 
+* purchasing organization 
+
+How PIR is useful in procurement?
+
+
+
+What are the other options available to create PIR apart from manual PIRcreation?
+
+* automatically from purhcase order or contract 
+
+* ME1M
+
+* mass creation 
+* PIR on purchase requisition
+
+## ⭐ SOURCE LIST 
+
