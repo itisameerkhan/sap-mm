@@ -613,6 +613,10 @@ The Material Master in SAP MM is a **central repository** of information related
 * MMAM → change material type 
 * MM50 → extend material view 
 
+### ⚡ MRP 
+
+
+The MRP (Material Requirements Planning) View in the Material Master is crucial for planning and managing material procurement and production. It defines how a material is planned, procured, and replenished in SAP MM.
 ## ⭐ VENDOR MASTER 
 
 The Vendor Master in SAP MM is a central repository of all vendor-related information required for procurement, invoice processing, and payment transactions. It contains key data that is used across various SAP modules such as Materials Management (MM), Financial Accounting (FI), and Sales & Distribution (SD).
@@ -996,12 +1000,27 @@ Yes, it is possible to maintain multiple vendors for a material at the same plan
 
 The source list can be created in different ways. Manually, it can be created using T-Code ME01 by entering vendor and material details. Automatically, it can be generated using T-Code ME05, which derives data from existing Purchasing Info Records (PIRs) and contracts. Additionally, source lists can be created via PIR integration or during an MRP run, where SAP selects vendors based on pre-defined procurement rules.
 
+## ⭐ QUOTA ARANGEMENT 
 
 
+Quota Arrangement is a mechanism in SAP MM that helps distribute procurement requirements among multiple vendors based on predefined percentages. It ensures that a company sources materials from different suppliers in a structured and controlled manner.
+
+**KEY FEATURES**
+
+**Key Features of Quota Arrangement**  
+1. **Vendor Allocation** – Assigns a specific percentage of procurement to each vendor.  
+2. **Automatic Vendor Selection** – When creating a Purchase Requisition (PR) or Purchase Order (PO), SAP selects the vendor automatically based on quota percentages.  
+3. **Quota Splitting** – If multiple vendors exist, SAP distributes the total procurement requirement based on the quota percentage.  
+4. **Quota Arrangement Usage Period** – Defined start and end dates to control the validity of quota allocation.  
+5. **Quota Calculation** – Based on past procurement quantities and assigned quota percentages.  
 
 
+**quota arrangement is tool for source administrration**
 
+![demo](./photos/17.png)
 
+* quota with the lowest quota rating represents the valid source 
 
+### ⚡ QUOTA RATING 
 
-
+Quota Rating is a calculated value that helps to determine which vendor will be selected first when there are multiple vendors assigned to the same material in the Quota Arrangement. **The vendor with the lowest quota rating will be selected first for fulfilling procurement requirements.**
