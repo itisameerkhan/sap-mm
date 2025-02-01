@@ -1,4 +1,4 @@
-## organization structure 
+## ⭐ organization structure 
 
 The organizational structure in SAP MM (Materials Management) defines how a company is structured for procurement, inventory management, and material planning. It consists of different organizational units
 
@@ -271,7 +271,7 @@ Here are **50 SAP MM Organizational Structure questions with answers** categoriz
 
 ---
 
-## procurement cycle 
+## ⭐ procurement cycle 
 
 
 ![demo](./photos/1.png)
@@ -378,7 +378,7 @@ material may have master
 
 * longer terms scheduling agreement 
 
-## MM integration with other module 
+### MM integration with other module 
 
 ![alt text](./photos/10.png)
 
