@@ -273,3 +273,122 @@ Here are **50 SAP MM Organizational Structure questions with answers** categoriz
 
 ## procurement cycle 
 
+
+![demo](./photos/1.png)
+![demo](./photos/2.png)
+![demo](./photos/3.png)
+![demo](./photos/4.png)
+![demo](./photos/5.png)
+![demo](./photos/6.png)
+![demo](./photos/7.png)
+
+⭐ **types of procurement** 
+
+* internal 
+
+* external 
+
+---
+
+ **1️⃣ External Procurement**
+
+**External Procurement** involves acquiring goods or services from external vendors or suppliers outside the organization. This is the most common method of procurement and includes the process of sourcing, purchasing, and receiving materials from external sources.
+
+**Key Points in External Procurement**:
+- **Source of Supply**: The materials are obtained from third-party vendors or suppliers.
+- **Stock Procurement**: The goods are bought and stored in the company's inventory.
+- **Consumption-Based Procurement**: The goods are consumed immediately or used directly in production.
+- **Subcontracting**: Semi-finished goods are sent to an external supplier for processing, and the finished goods are returned.
+- **Third-Party Procurement**: Goods are directly delivered from a vendor to the customer, bypassing the company’s inventory.
+
+---
+
+ **2️⃣ Internal Procurement**
+
+**Internal Procurement** involves moving goods or materials from one plant, warehouse, or storage location to another within the same organization. This is commonly referred to as **Stock Transfer** or **Inter-Plant Transfer**.
+
+ **Key Points in Internal Procurement**:
+- **Source of Supply**: The goods are obtained from the organization's own plants or storage locations, not external suppliers.
+- **Stock Transfer**: Material is moved from one location to another within the organization.
+- **No Purchase Order**: Since the transaction happens within the same organization, there is no need for a formal purchase order.
+- **No Vendor Involvement**: No external vendor is involved in the process.
+  
+
+---
+
+ **Key Differences Between Internal and External Procurement:**
+
+| Aspect                          | **External Procurement**                                       | **Internal Procurement**                                      |
+|----------------------------------|---------------------------------------------------------------|---------------------------------------------------------------|
+| **Source of Supply**             | External vendors/suppliers                                   | Internal plants or storage locations                          |
+| **Transaction Involvement**      | Involves a purchase order (PO), vendor, and payment process. | Involves stock transfer between locations, no vendor.          |
+| **Materials Movement**           | Materials are received from external suppliers into stock.   | Materials are moved between different plants or storage locations. |
+| **Procurement Process**          | Full procurement process (PO, GR, Invoice, Payment).         | Simple stock transfer or consignment process.                 |
+| **Example**                      | Buying raw materials or finished goods from an external supplier. | Transferring finished goods from one warehouse to another.    |
+
+---
+
+ **Use Cases:**
+
+ **External Procurement**:
+- Used when the organization needs materials or services from outside suppliers, such as raw materials, finished goods, or services like consulting.
+  
+ **Internal Procurement**:
+- Used for internal transfers, where materials need to be moved from one location or plant to another within the same organization (e.g., moving raw materials from warehouse A to production plant B).
+
+
+![demo](./photos/8.png)
+![demo](./photos/9.png)
+
+### methods for procurements 
+
+1. procurement for stock
+
+2. procurement for direct consumption 
+
+**procurement for stock** 
+
+* Stock Procurement involves purchasing materials from external vendors and storing them in the company’s inventory or stock. This method is used when the organization wants to maintain control over the materials in stock and keep them available for future use.
+
+key components
+
+* goods receipt
+
+* stock management 
+* purchasing order 
+* invoice verification 
+
+material must have material master 
+
+**procurement for direct consumoption**
+
+Direct Consumption Procurement (also known as Consumption-Based Procurement) involves purchasing materials or services directly for immediate use or consumption, rather than storing them in inventory. In this method, goods are procured, but they are not stocked—they are directly consumed by production or other operations.
+
+* goods receipt 
+
+* no stock update 
+
+* no stock management 
+
+material may have master 
+
+* one time purchase order
+
+* longer terms contract 
+
+* longer terms scheduling agreement 
+
+## MM integration with other module 
+
+![alt text](./photos/10.png)
+
+
+**forms of procurement**
+
+* purchase order 
+
+* purchase requisition
+* goods receipt 
+* invoice verification 
+* stock transfer order 
+* RFQ
