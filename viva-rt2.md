@@ -912,3 +912,96 @@ What are the other options available to create PIR apart from manual PIRcreation
 
 ## ⭐ SOURCE LIST 
 
+* for some of the materials, there is more than one
+source of supply. You can manage these supply sources
+using source lists to control how the application-related
+supply sources are used.
+
+* Source list specifies the possible sources of supply for a
+Material over a given period of time. It shows the time
+period in which a material may be ordered from a given
+vendor or under a certain long-term purchase
+agreement.
+
+* In the source list, you specify which source of supply is
+valid for a certain period of time.
+
+* You can specify a preferred source as fixed or MRP-
+relevant for a certain period in the source list.
+
+* You can mark an undesired source as blocked.
+
+
+**Used to Vendor (supplier) are  autohrized to supply the specific material adn within the specific period of time. It helpds manages the relationship between the material and vendors by listing the approved vendors. And validity period for vendor and materials 
+In source list contains list of material in a particualra plant for particular period 
+We have fix or block the source of material and vendor**
+
+ME01 - creation of source list 
+
+ME05 - automatic source list 
+
+* Source list is a list of approved vendor for a specific material. It tells which vendor to buy from and which time they will supply the material 
+
+* Ensure you to buy material from trusted vendors 
+Automatically picks vendor while creating a purchase order or purchase requisition
+
+* contains sources of material and plant for particular time period 
+
+* fixed a source, blocking a source
+
+**FUNCTIONS**
+
+* supplier restriction and vendor selection
+
+* Automatic Source Determination in Purchase Requisitions & Orders
+
+* Mandatory Source List Requirement
+
+* Scheduling Agreements & Contracts Linking
+
+* Vendor Evaluation & Priority Handling
+
+**CREATION**
+
+* **manually**
+
+* **creation from within outline agreement**
+
+
+**advantages of source list**
+
+1. Streamlined Vendor Selection
+
+2. Automatic Vendor Assignment
+3. Prevention of Expired Vendor Contracts
+4. Integration with MRP (Material Requirements Planning)
+5. Fixed Vendor Assignment
+6. Cost Control & Transparency
+
+
+-------
+
+1. What is use of source list?
+
+
+The Source List in SAP MM is used to manage and control the vendors authorized to supply a material for a specific plant. It ensures compliance by allowing procurement only from approved sources, automates vendor selection during Purchase Requisition (PR) and Purchase Order (PO) creation, and integrates with Material Requirements Planning (MRP) to select vendors automatically. Additionally, it helps assign Fixed Vendors, restrict unauthorized purchasing, and prevent expired vendor contracts from being used.
+
+2. Is it possible to maintain multiple sources for a plant within same validity period?
+
+Yes, it is possible to maintain multiple vendors for a material at the same plant within the same validity period. SAP allows multiple vendors with defined priority rankings, and one vendor can be marked as Fixed, meaning all procurement should be directed to them. If no vendor is fixed, SAP will consider all eligible vendors during procurement.
+
+
+
+3. What are different ways of creation of source list?
+
+The source list can be created in different ways. Manually, it can be created using T-Code ME01 by entering vendor and material details. Automatically, it can be generated using T-Code ME05, which derives data from existing Purchasing Info Records (PIRs) and contracts. Additionally, source lists can be created via PIR integration or during an MRP run, where SAP selects vendors based on pre-defined procurement rules.
+
+
+
+
+
+
+
+
+
+
