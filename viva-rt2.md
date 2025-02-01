@@ -1024,3 +1024,29 @@ Quota Arrangement is a mechanism in SAP MM that helps distribute procurement req
 ### ⚡ QUOTA RATING 
 
 Quota Rating is a calculated value that helps to determine which vendor will be selected first when there are multiple vendors assigned to the same material in the Quota Arrangement. **The vendor with the lowest quota rating will be selected first for fulfilling procurement requirements.**
+
+## ⭐ MATERIAL TYPE 
+
+It defines how materials are managed, procured, and processed within the system. Each material type has specific attributes, controls, and functionalities associated with it, such as procurement method, valuation class, and inventory management.
+
+
+| **Material Type**    | **Description**                                               | **Example**                        |
+|----------------------|---------------------------------------------------------------|------------------------------------|
+| **ROH (Raw Materials)**  | Materials procured externally for production.                | Steel, Plastic                    |
+| **HALB (Semi-Finished Goods)** | Materials produced in-house or externally, processed further in production. | Assembled parts, intermediate products |
+| **FERT (Finished Goods)**  | Final products produced in-house, ready for sale.            | Cars, Mobile Phones               |
+| **VERP (Packaging)**  | Materials used for packaging products.                       | Boxes, Plastic wraps              |
+| **HIBE (Hazardous)**  | Materials with hazardous properties.                         | Chemicals, Gases                  |
+| **ERSA (Spare Parts)**  | Materials for maintenance and repair of machinery.           | Machine parts, Tools              |
+| **SERN (Serialized)**  | Materials requiring serial number tracking.                  | Electronics, Machines             |
+| **DIEN (Services)**    | Non-material items representing services.                    | Consulting, Maintenance           |
+| **CONS (Consumables)** | Materials used up during operations, not tracked individually. | Office supplies, Lubricants       |
+| **NES (Non-Stock)**   | Materials not managed in inventory, used immediately.        | Small tools, One-time materials   |
+| **UNBW (Non-Valuated)** | Materials without valuation or stock management.             | Consumables expensed immediately  |
+| **BES (Services w/ PO)** | Services provided via Purchase Order.                       | Subcontracting services           |
+| **ZMAT (Custom Materials)** | Custom-defined materials for specific needs.               | Tailored materials                |
+| **MB01 (Material Stock)**  | Materials in stock, can be issued for consumption.          |                                    |
+| **MISC (Miscellaneous)**  | General category for materials not falling under other types. | Miscellaneous items               |
+| **MRO (Maintenance, Repair, Overhaul)** | Materials used for maintenance, repair, and overhaul processes. | Maintenance parts                 |
+| **EMP (Employee-Related)** | Materials related to employee consumption.                  | Uniforms, Work shoes              |
+
