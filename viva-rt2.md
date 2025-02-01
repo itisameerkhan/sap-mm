@@ -1,5 +1,6 @@
 ## organization structure 
 
+The organizational structure in SAP MM (Materials Management) defines how a company is structured for procurement, inventory management, and material planning. It consists of different organizational units
 
 | **Level** | **Description** |
 |-----------|---------------|
@@ -11,3 +12,5 @@
 | **Purchasing Group (PGrp)** | Group of buyers responsible for procurement. |
 
 ---
+
+## procurement cycle
