@@ -562,3 +562,102 @@ Here are the **answers** to the 50 questions on the **procurement cycle in SAP M
 ---
 
 These answers will guide you through various scenarios in the procurement cycle within SAP MM. Let me know if you need further details!
+
+---
+
+## ⭐ Material Master 
+
+The Material Master in SAP MM is a **central repository** of information related to materials that an organization procures, manufactures, or sells. It contains all the key data about materials, which is needed for procurement, production, sales, and other functions in SAP.
+
+**STRUCTURE**
+
+1. basic data 
+
+2. purchasing view 
+
+3. MRP 
+4. storage view 
+5. accounting view 
+6. sales view 
+
+**KEY DATA**
+
+1. material type 
+
+2. material group 
+3. base unit of measure 
+4. valuation class 
+5. price control
+6. stock type 
+
+**material master in procurement process**
+
+* procuremnet 
+
+* inventory management 
+* valuation and accounting 
+
+**LEVELS**
+
+* client level 
+
+* plant 
+* storage location 
+---
+
+* List of material → `MM60`
+
+* `MM04` → track changes in material 
+* MM06 → deletion of material 
+* MM17 → mass maintenance 
+* MMAM → change material type 
+* MM50 → extend material view 
+
+## ⭐ VENDOR MASTER 
+
+The Vendor Master in SAP MM is a central repository of all vendor-related information required for procurement, invoice processing, and payment transactions. It contains key data that is used across various SAP modules such as Materials Management (MM), Financial Accounting (FI), and Sales & Distribution (SD).
+
+**LEVELS**
+
+* client 
+
+   * Vendor Name and Address
+   * Contact Information (Phone, Email, Fax, etc.)
+   * Bank Details (Bank Account, IBAN, SWIFT Code, etc.)
+   * Tax Information (GST, VAT, PAN, etc.)
+Industry Classification
+
+* company code 
+
+   * Reconciliation Account (Links vendor to G/L Accounting in FI)
+
+   * Payment Terms (Cash discounts, due dates, etc.)
+   * Dunning Procedures (Overdue payment reminders)
+   * Withholding Tax Information
+* purchasing organization 
+
+   * Order Currency
+
+   * Terms of Delivery (Incoterms, Freight Conditions, etc.)
+   * Partner Functions (Ordering Address, Invoicing Party, etc.)
+   * Purchase Order History (Previous transactions, performance evaluation, etc.)
+
+
+   **ACCOUNT GROUP** 
+
+   An Account Group in SAP MM is a classification tool used to define the characteristics and number ranges of Vendor Master Records. It determines which fields are mandatory, optional, or hidden when creating a vendor.
+
+ * Controls the number range (internal/external) assigned to vendors.
+
+ *  Defines which fields are required when creating a vendor (e.g., bank details, tax information).
+* Determines the type of vendor (e.g., regular supplier, one-time vendor).
+* Helps in data consistency by standardizing vendor information across the system
+
+* has control functions 
+
+![ddewe](./photos/11.png)
+![ddewe](./photos/12.png)
+
+## ⭐ NUMBER ASSIGNMENT
+
+![ddewe](./photos/13.png)
