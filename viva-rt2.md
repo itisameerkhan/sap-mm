@@ -109,7 +109,7 @@ Here are **50 SAP MM Organizational Structure questions with answers** categoriz
 
 ---
 
-### **🟢 EASY LEVEL (1-20)**  
+**🟢 EASY LEVEL (1-20)**  
 1. **What is a Client in SAP MM?**  
    - The **Client** is the highest level in the SAP hierarchy and represents an independent unit with its own data and configuration.
 
@@ -172,7 +172,7 @@ Here are **50 SAP MM Organizational Structure questions with answers** categoriz
 
 ---
 
-### **🟡 MEDIUM LEVEL (21-40)**  
+ **🟡 MEDIUM LEVEL (21-40)**  
 
 21. **Explain the relationship between Plant and Company Code.**  
    - A **Company Code** can have **multiple Plants**, but a **Plant belongs to only one Company Code**.
@@ -236,7 +236,7 @@ Here are **50 SAP MM Organizational Structure questions with answers** categoriz
 
 ---
 
-### **🔴 HARD LEVEL (41-50)**  
+ **🔴 HARD LEVEL (41-50)**  
 
 41. **How do you change a Plant assignment without affecting open Purchase Orders?**  
    - Ensure **Purchase Orders are completed or reassigned** before making changes in **OX18**.
