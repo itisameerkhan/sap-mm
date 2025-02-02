@@ -1050,3 +1050,7 @@ It defines how materials are managed, procured, and processed within the system.
 | **MRO (Maintenance, Repair, Overhaul)** | Materials used for maintenance, repair, and overhaul processes. | Maintenance parts                 |
 | **EMP (Employee-Related)** | Materials related to employee consumption.                  | Uniforms, Work shoes              |
 
+
+## ⭐ PURCHASE REQUISITION 
+
+A Purchase Requisition (PR) in SAP MM is an internal document used to request the procurement of materials or services. It acts as the first step in the procurement cycle and is used to inform the purchasing department about the need for materials or services.
