@@ -1054,3 +1054,370 @@ It defines how materials are managed, procured, and processed within the system.
 ## ⭐ PURCHASE REQUISITION 
 
 A Purchase Requisition (PR) in SAP MM is an internal document used to request the procurement of materials or services. It acts as the first step in the procurement cycle and is used to inform the purchasing department about the need for materials or services.
+
+**METHODS**
+
+* direct 
+
+* indirect 
+
+automatically from 
+
+In MRP
+
+With maintenance orders
+
+
+With production orders
+
+With networks
+
+![demo](./photos/18.png)
+
+Standard
+
+Subcontracting
+
+Consignment
+
+Stock Transfer
+
+External Service
+
+
+## ⭐ RFQ
+
+An RFQ is a document sent to vendors asking them to provide a quote for supplying specific goods or services. The RFQ includes details like:
+
+1. Material or service requirements.
+
+2. Quantities.
+3. Delivery dates.
+4. Any specific terms and conditions.
+
+Vendors respond with their quotations, which the purchasing team evaluates to select the best supplier.
+
+
+Collective number is unique number to link several RFQ’s 
+Length → 10 
+
+Different RFQ can be linked with → collective number 
+
+## ⭐ PURCHASE ORDER 
+
+It is a formal request sent to the vendor to procure goods and services upon agreed terms by the organization 
+What you want to buy
+How much quantity 
+What price 
+Delivery details 
+After RFQ or PR the purchase department creating po
+"A Purchase Order (PO) in SAP MM is a formal document sent to a supplier to order materials or services. It specifies the material, quantity, price, and delivery details, ensuring that both the company and supplier agree on what’s being purchased."
+Pre requisite 
+Vendor master,  p org, company code, p grps, plant, material, 
+
+1. Manual purchase order: In this case you need to enter all the required details in purchase order.
+2. Automatic purchase order: _It can be created with reference to purchase requisition
+
+Me21n → purchase order 
+
+Me25 → suggest to select possible vendor 
+
+Me58, me59, me59n → creation of PO from assigned requisition 
+
+Me21n (stock transfer) → not from vendor but from plants 
+
+![demo](./photos/19.png)
+![demo](./photos/20.png)
+
+Standard Item categories
+* Standard
+
+* Subcontracting
+* Third Party
+* Consignment
+* Stock Transport Order
+
+### ⚡ Document Type in Purchase Order (PO) in SAP MM
+
+In SAP MM, a Document Type in a Purchase Order (PO) defines the purpose, control parameters, and number range for different types of purchase orders. It helps in classifying and managing procurement documents effectively.
+
+**Key Functions of PO Document Types:**
+
+* Controls Number Range: 
+
+* Determines Field Selection: 
+
+* Manages Workflow & Approvals:
+
+## ⭐ ACCOUNT ASSIGNMENT 
+
+ **What is Account Assignment in SAP MM?**  
+**Account Assignment** in SAP MM is the process of linking a **Purchase Order (PO), Purchase Requisition (PR), or Goods Receipt (GR)** to a **specific cost object** such as a cost center, project, asset, or sales order. It determines how the cost of the purchased material or service is allocated in financial accounting.  
+
+---
+
+ **Why is Account Assignment Required?**  
+- It is required when purchasing **non-stock materials or services**, which are not stored in inventory but consumed directly.  
+- It ensures proper tracking of expenses and cost allocation in **FI (Financial Accounting) and CO (Controlling) modules**.  
+
+---
+
+**Types of Account Assignment Categories in SAP MM:**  
+
+| **Account Assignment Category** | **Description** | **Example Usage** |
+|--------------------------------|----------------|------------------|
+| **K (Cost Center)** | Costs are charged to a **Cost Center**. | Office supplies, stationary, utilities. |
+| **F (Order)** | Costs are assigned to an **Internal Order**. | Temporary projects, events. |
+| **P (Project/WBS Element)** | Costs are assigned to a **Project (WBS Element)**. | Construction, IT projects. |
+| **A (Asset)** | Costs are booked to an **Asset** in Asset Accounting. | Machinery, vehicles. |
+| **C (Sales Order)** | Costs are linked to a **Sales Order** in SD. | Customer-specific purchases. |
+| **M (Material)** | Costs are charged to **Material** stock. | Inventory procurement. |
+| **Q (Project Stock)** | Costs are booked to **Project Stock**. | Raw materials for specific projects. |
+| **U (Unknown)** | Used when account assignment is **not yet determined**. | Temporary usage. |
+
+---
+
+ **Where is Account Assignment Used?**  
+- **Purchase Requisition (PR)**
+- **Purchase Order (PO)**
+- **Service Entry Sheets (SES)**
+- **Goods Receipts (GR)**
+- **Invoice Verification (MIRO)**  
+
+
+
+
+
+* **When GR is done for the PO item, stock will not increase in the system, but it will be directly consumed against the cost object.**
+
+![demo](./photos/21.png)
+
+## ⭐ CONDITIONS 
+
+![demo](./photos/22.png)
+
+Conditions used to represents pricing elements like price, discounts, subcharges, taxes, delivery costs
+
+Conditions can be maintained while creating quotations, info record, outline agreement, po
+
+* PB00, PBXX - gross price 
+
+* RA01 - discount 
+* FRA1 - freight 
+
+
+* Gross price → price without any discounts, surcharges in account 
+
+* Net price → price taking after discounts and surcharges
+
+* Effective price → net price after deduction of cash discount 
+
+
+**1. Time-Independent Conditions**
+
+These conditions don’t change based on time. The price or discount is fixed, no matter when you make the purchase.
+
+**2. Time-Dependent Conditions**
+
+These conditions change depending on the time, such as special offers or discounts available only for certain periods.
+
+## ⭐ OUTLINE AGREEMENT 
+
+Outline agreement 
+Outline agreement is a long term agreement with the vendor regarding the procurement of material or services 
+Types 
+
+Contract agreement 
+
+Scheduling agreement 
+
+Long term agreement between the purchase organization and vendor for procurement of material or service 
+
+In **SAP MM (Materials Management)**, an **Outline Agreement** is a long-term purchasing arrangement between a company and a vendor. It is used to streamline procurement by pre-defining terms and conditions for future transactions. There are two main types of outline agreements in SAP MM:
+
+ **1. Contract (T-Code: ME31K)**
+   - A **contract** is a formal agreement with a vendor that specifies the terms of procurement but does not contain detailed delivery schedules.
+   - It defines **quantity-based** or **value-based** agreements.
+   - The actual procurement is done using **release orders (Purchase Orders, T-Code: ME21N)** referencing the contract.
+   - **Types of Contracts:**
+     - **Quantity Contract (MK)** → The total quantity of materials is fixed, and release orders are created until the quantity is fulfilled.
+     - **Value Contract (WK)** → The total contract value is fixed, and release orders can be created until the value is exhausted.
+
+ **2. Scheduling Agreement (T-Code: ME31L)**
+   - A **scheduling agreement** is a long-term agreement with a vendor that includes **specific delivery schedules**.
+   - Unlike contracts, the delivery dates and quantities are predefined in the system.
+   - Scheduling agreements **automatically generate** delivery schedules based on requirements.
+   - **Types of Scheduling Agreements:**
+     - **Without Release Documentation** → The system directly sends the scheduling lines to the vendor.
+     - **With Release Documentation** → A formal release (forecast or JIT) is required before the vendor proceeds with delivery.
+
+
+![demo](./photos/23.png)
+
+* manually
+
+* with reference to other documents 
+
+   * purchase requisition 
+
+   * RFQ's / quotation 
+
+   * other contracts
+
+
+## ⭐ SOURCE DETERMINATION 
+
+Source determination is a process of finding the right supplier for the materila or service when creating purchasing requisition or purchase order. 
+
+When the company buys something sap helps finding the best supplier through 
+
+* Purchase info record 
+
+* Source list 
+* Quota arrangement 
+* Outlien agreement 
+
+Auotmaticaly picks vendor instead of manual selections 
+
+* Use only approved vendors 
+
+* Reduce time 
+
+Adopted using bp using quota arrangement 
+
+* MRP run
+
+* Purchase requisition
+* Planned order 
+* Production order 
+
+## ⭐ BACKGROUND JOB 
+
+In SAP MM, a background job is a task or process that runs automatically in the background without user interaction. It’s typically used to perform regular or time-consuming tasks, like report generation, data updates, or stock checks, during off-peak hours.
+
+* It will run parallel without any disturbance
+
+* It can be run as per user choice 
+* Reduce manual effort and automate tasks  
+
+* Time saving
+* Repetitive task
+
+Common example background job
+
+* MRP run
+
+* Stock reports 
+
+* Price update 
+* Document archiving 
+
+How to set background job
+
+* Access the job scheduler 
+
+* Define job name 
+* Specify program/task
+
+* Set schedule 
+* Save and activate 
+
+
+Priority 
+* Class A (high priority)
+
+* Class  B medium priority
+* Class C low priority
+
+Status of background job 
+
+* Scheduled 
+
+   * Job is planned but not started
+
+* Released 
+   * Job is ready to execute and is waiting for its turn in the system 
+* Ready 
+   * The job is queued and will start shortly
+* Active 
+   * The job is currently running in background
+* Finished 
+   * The job completed successfully 
+* Cancelled 
+   * The job was stopped before compilation due to errors, system issues, manual intervention 
+
+
+## ⭐ SPEICAL PROCUREMENT PROCESS 
+
+SPECIAL PROCUREMENT PROCESS 
+Special stock is a stock that do not belong to the company as they are not stored in your company or any other particular location
+
+* Consignment 
+
+* Subcontracing 
+* Stock transfer 
+* Third party procurement 
+* Returnable transport packaging 
+* Pipeline handling 
+* Sales order stock 
+* Project stock 
+
+**CONSIGNMENT STOCK**
+
+Consignment stock is a type of stock where vendor(supplier) keeps all the goods in our location like organization in which we only have to pay for the amount used them.
+
+**STOCK TRANSFER ORDER**
+
+Stock transfer order is used to move materials from one plant to another plant within the same company code
+
+
+
+**SUBCONTRACTING STOCK**
+
+In this we have to send the raw materials to the vendor, then vendor used to manufacturing the finished product and send the product to the company 
+
+
+**STOCK IN TRANSIT**
+
+In SAP Materials Management (SAP MM), Stock in Transit refers to inventory that is being transferred from one location to another within the company, but which has not yet been received at the destination location. It typically arises during inter-plant stock transfers, or when goods are being transferred from a supplier or warehouse to a plant.
+
+**PIPELINE STOCK**
+
+Pipeline Stock refers to the stock that is not physically stored in a company's warehouse but is available for use directly from a vendor or supplier's pipeline, such as gas, water, or electricity.
+
+**PROJECT STOCK**
+
+Project Stock is a special type of stock in SAP used exclusively for a specific project. It ensures that materials are reserved and only used for that particular project, preventing their use in other operations or sales orders.
+
+It is managed as valuated or on valuated project stock 
+
+
+
+**RETURNABLE TRANSPORT PACKAGING**
+
+Returnable Transport Packaging (RTP) is a special procurement process where reusable packaging materials, such as pallets, containers, crates, or barrels, are sent along with goods. These packaging materials do not belong to the buyer and must be returned to the vendor after use.
+
+**THIRD PARTY PROCESSING**
+
+Materials are delivered directly to the customer by your vendor, skipping your warehouse. The sales order not processed by the company but by the vendor 
+
+**SALES ORDER STOCK**
+
+Sales Order Stock is a special stock type in SAP that is reserved for a specific sales order. It ensures that the materials procured or produced for a particular customer’s order are exclusively used to fulfill that order, preventing their use for other purposes.
+
+
+
+| **Special Procurement Type** | **Description** |
+|-----------------------------|---------------|
+| **Consignment (K)** | The material is stored at the company's location but remains the vendor’s property until used. Payment is made only when consumed. |
+| **Subcontracting (L)** | Raw materials are sent to a subcontractor, who processes them and delivers the finished product back. |
+| **Stock Transfer (U)** | Transfer of material between plants within the same company code or different company codes. |
+| **Third-Party Processing (X)** | Material is delivered directly from the vendor to the customer without passing through the company. Used in **drop shipping** scenarios. |
+| **Returnable Transport Packaging (RTP) (M)** | The supplier delivers materials in returnable packaging, which is sent back after use. |
+| **Pipeline (P)** | Materials such as gas, water, or electricity are supplied through pipelines or cables, with consumption-based invoicing. |
+| **By-Product (O)** | A secondary product obtained during the manufacturing of another material. |
+| **External Processing (E)** | Part of the manufacturing process is outsourced to an external vendor. |
+| **Vendor Managed Inventory (VMI)** | The vendor monitors stock levels and replenishes materials automatically. |
+
+
+![de](./photos/24.png)
