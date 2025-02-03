@@ -1421,3 +1421,71 @@ Sales Order Stock is a special stock type in SAP that is reserved for a specific
 
 
 ![de](./photos/24.png)
+
+## ⭐ SERVICE MASTER 
+
+The Service Master in SAP MM is a central repository that stores details about external services procured by a company, such as consulting, maintenance, repairs, or transportation. Unlike material master, which deals with physical goods, service master records are used to manage non-stock services efficiently.
+
+**Purpose**: The service master record counts as part of the master data within External Services
+Management and serves as a source of data for you to draw upon when creating service specifications.
+Structure: A service master record contains the following principal information for the unique description
+of a service:
+
+* Service number
+
+* Service category
+
+* Descriptive texts (short and long text)
+
+* Base unit of measurement
+
+* Material/service group
+
+* Valuation class
+
+## ⭐ PRICING PROCEDURE 
+
+calculation of cost and price mentioned in purchase order based on condition which are mentioned by the suppliers
+
+* Standard type of condition types 
+
+* Gross price 
+* Discount 
+* Freight / delivery cost
+* Surcharges 
+* Taxes 
+* Insurance 
+
+Gross price: price excluding the discounts and subcharges 
+
+Net price: price taking discounts, surcharges, taxes
+
+Effective price: net price plus delivery cost, cash discounts
+
+
+A vendor’s price of a material is made up of different components:
+
+* Gross Price
+
+* Surcharge
+* Freight Cost
+* Taxes
+
+**PRICE DETERMINATION PROCESS**
+
+* Condition table is created to group together fields for which we want to maintain condition record
+
+* Assign the condition tables to access sequence
+
+* Define condition type and assign access sequence to condition type
+
+* Define pricing procedure in calculation schema
+
+* Define vendor and purchasing Org. schema
+
+* Assign Calculation schema to vendor and purchasing organization schema combination
+
+* Maintain condition records in the condition table
+
+
+### ⚡ CONDITION TABLE
