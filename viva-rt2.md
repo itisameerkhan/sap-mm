@@ -1456,11 +1456,11 @@ calculation of cost and price mentioned in purchase order based on condition whi
 * Taxes 
 * Insurance 
 
-Gross price: price excluding the discounts and subcharges 
+**Gross price**: price excluding the discounts and subcharges 
 
-Net price: price taking discounts, surcharges, taxes
+**Net price**: price taking discounts, surcharges, taxes
 
-Effective price: net price plus delivery cost, cash discounts
+**Effective price**: net price plus delivery cost, cash discounts
 
 
 A vendor’s price of a material is made up of different components:
@@ -1489,3 +1489,6 @@ A vendor’s price of a material is made up of different components:
 
 
 ### ⚡ CONDITION TABLE
+
+
+## ⭐ MESSAGE DETERMINATION 
