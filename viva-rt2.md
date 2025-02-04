@@ -1492,3 +1492,283 @@ A vendor’s price of a material is made up of different components:
 
 
 ## ⭐ MESSAGE DETERMINATION 
+
+Message determination is process of generating and send message related to various procurement activities such as order confirmation, purchase order, goods receipt 
+This message can be in the form of printouts, emails, or other communication forms 
+
+![demo](./photos/25.png)
+
+**PROCESS FLOW**
+
+* purchasing documents 
+
+* message determination 
+
+* message records 
+* output 
+
+purchasing documents 
+
+REQUEST FOR QUOTATION 
+* PURCHASE ORDER 
+
+* OUTLINE AGREEMENT 
+* SCHEDULING AGREEMENT 
+* INBOUND DELIVERY 
+
+## ⭐ INVENTORY MANAGEMENT 
+
+Inventory Management in SAP Material Management (SAP MM) is responsible for managing and tracking materials throughout their lifecycle in a company. It includes goods receipt, goods issue, stock transfers, and physical inventory management.
+
+1. goods receipt 
+
+2. goods issue 
+
+3. stock transfer and stock posting 
+4. physical inventory management 
+5. reservation 
+
+* It is process for monitoring the flow of goods in and out in the plant, store or warehouse.
+
+* It keeps track of quantity and value of the material.
+
+* Process involves managing of company stock and different special stocks like consignment stocks, pipeline handling, third-party stocks, returnable transport packaging (RTP) stock, sales order stock, project stocks
+ete.
+
+* Inventory management is part of material management and is integrated with different modules sales and
+distribution, production planning, quality management, warehouse management and finance.
+
+* Multiple documents like goods receipt, goods issue, transfer posting, physical inventory as per the requirement are created
+
+### ⚡ MATERIAL DOCUMENT 
+
+A Material Document in SAP MM is a record that captures every goods movement, such as Goods Receipt (GR), Goods Issue (GI), or Stock Transfers. It serves as proof of material transactions in inventory and financial accounting.
+
+---
+
+* All transactions that bring about a change in stock are entered in real time, as are the stock updates resulting from these changes.
+
+* For each goods movement a document is created which is used by the system to update quantities and values and serves as proof of goods movements. This document is called the material document.
+
+* We can track the stock levels for any material at any instance in the system. We can see how much stock is lying in the warehouse, on-order, in transit, in quality inspection, blocked etc. and how much stock do we
+have under consignment, reservation against WBS or sales order etc.
+
+### ⚡ MANAGEMENT OF STOCK BY VALUE 
+
+The stocks are managed not only on a quantity basis but also by value. The system automatically updates the
+following data each time there is a goods movement:
+
+* Quantity and value for Inventory Management
+
+* Account assignment for cost accounting
+
+* G/L accounts for financial accounting via automatic account assignment
+
+When you enter a goods movement, you must enter the plant and the storage location of the goods. The
+system derives the company code from the plant via the valuation area and updates G/L accounts accordingly.
+
+### ⚡ GOODS MOVEMENT 
+
+* Goods movement is any transaction resulting in change in stock.
+
+* We can post following types of goods movement:
+
+**Goods receipt**
+
+* goods receipt is a goods movement with which the receipt of goods from a vendor or from production is posted.
+
+* goods receipt leads to an increase in warehouse stock.
+
+**Goods Issue**
+
+* A goods issue (Gl) is a goods movement with which a material withdrawal or material issue, a material
+consumption, or a shipment of goods to a customer is posted.
+*  goods issue leads to a reduction in warehouse stock.
+
+### ⚡MOVEMENT TYPE 
+
+Movement type is the three digit identification key of the goods movement. it helps to differentiate the between
+various goods movement.
+
+movement type controls many functions:
+
+* Controls quantity update
+
+* Stock and value update for material
+
+* Field selection control for the inventory documents in system
+
+* Determination of g/l account
+
+* Printing gi/gr slips
+
+---
+
+* 1** - gr against reference document
+
+* 2** - GI for consumption
+
+* 3**/4** - transfer postings
+
+* 5** - goods movement without reference
+
+* 6** - goods movement with reference to deliveries
+
+* 7** - physical inventory
+
+---
+
+**ROLE OF MOVEMENT TYPE**
+
+* Allowed transactions
+
+* Reversal movement types and reasons
+* Account grouping
+
+* Quantity/Value update
+
+* Field selection
+
+![dem](./photos/26.png)
+
+
+### ⚡ MOVEMENT TYPE KEYS
+
+ **📌 SAP MM Movement Types – Detailed Explanation for 1**, 2**, 3**, 4**, 5**, 6**, 7**  
+
+---
+
+ **🔹 1** – Goods Receipt (GR)  
+
+| **Movement Type** | **Description** | **Use Case** |
+|------------------|----------------|--------------|
+| **101** | Goods receipt for Purchase Order (PO) into unrestricted stock | Receiving material from vendor |
+| **102** | Reversal of 101 | Cancel a 101 movement |
+| **103** | GR for PO into **GR Blocked Stock** | Quality inspection needed |
+| **104** | Reversal of 103 | Cancel a 103 movement |
+| **105** | Release GR Blocked Stock to unrestricted | Final acceptance after inspection |
+| **107** | GR into **Valuated GR Blocked Stock** | Inspection but valuated |
+| **108** | Reversal of 107 | Cancel 107 |
+| **109** | GR from **Valuated GR Blocked Stock** to unrestricted | Accepted stock |
+
+✅ **Example Use Case:**  
+- **101:** Company **receives raw materials** from a supplier.
+- **103:** Goods are **blocked for inspection** before adding to stock.
+
+---
+
+ **🔹 2** – Goods Issue (GI)  
+
+| **Movement Type** | **Description** | **Use Case** |
+|------------------|----------------|--------------|
+| **201** | GI for cost center | Consumption without sales |
+| **202** | Reversal of 201 | Cancel 201 |
+| **221** | GI for project | Material issued for a project |
+| **222** | Reversal of 221 | Cancel 221 |
+| **231** | GI for sales order | Material directly issued for sales |
+| **232** | Reversal of 231 | Cancel 231 |
+| **241** | GI for asset | Issue material for asset use |
+| **242** | Reversal of 241 | Cancel 241 |
+| **261** | GI for production order | Consumption for production |
+| **262** | Reversal of 261 | Cancel 261 |
+| **281** | GI for sales order without delivery | Direct sale without SO |
+| **282** | Reversal of 281 | Cancel 281 |
+
+✅ **Example Use Case:**  
+- **201:** Office **uses raw materials** for internal work.
+- **261:** Material **issued to production** for manufacturing.
+
+---
+
+ **🔹 3** – Stock Transfer (Plant-to-Plant)  
+
+| **Movement Type** | **Description** | **Use Case** |
+|------------------|----------------|--------------|
+| **301** | Transfer posting **plant to plant** | Move stock between plants |
+| **302** | Reversal of 301 | Cancel 301 |
+| **303** | Transfer to **stock in transit** | Stock sent but not received |
+| **304** | Reversal of 303 | Cancel 303 |
+| **305** | GR for stock in transit | Receiving transferred stock |
+| **309** | Transfer posting **material to material** | Change one material number to another |
+
+✅ **Example Use Case:**  
+- **301:** Transfer **steel rods from Plant A to Plant B**.
+- **303 & 305:** Track material **in transit until received**.
+
+---
+
+**🔹 4** – Transfer Posting (Storage Location, Quality, Blocked Stock)  
+
+| **Movement Type** | **Description** | **Use Case** |
+|------------------|----------------|--------------|
+| **311** | Transfer posting **storage location to storage location** | Move stock within a plant |
+| **312** | Reversal of 311 | Cancel 311 |
+| **321** | Transfer **Quality Inspection to Unrestricted** | Release stock from quality check |
+| **322** | Transfer **Unrestricted to Quality Inspection** | Move stock for testing |
+| **323** | Transfer **Blocked Stock to Unrestricted** | Unblock stock |
+| **324** | Transfer **Unrestricted to Blocked Stock** | Block defective material |
+| **325** | Transfer **Quality Inspection to Blocked Stock** | Block rejected stock |
+| **326** | Transfer **Blocked Stock to Quality Inspection** | Re-inspect blocked stock |
+
+✅ **Example Use Case:**  
+- **321:** After passing inspection, material is **moved to unrestricted stock**.
+- **324:** Defective material is **marked as blocked stock**.
+
+---
+
+ **🔹 5** – Goods Receipt Without PO & Free Goods  
+
+| **Movement Type** | **Description** | **Use Case** |
+|------------------|----------------|--------------|
+| **501** | GR without PO | Receive unplanned material |
+| **502** | Reversal of 501 | Cancel 501 |
+| **503** | GR without PO into **Blocked Stock** | Directly block unplanned stock |
+| **504** | Reversal of 503 | Cancel 503 |
+| **505** | GR without PO into **Quality Inspection Stock** | Stock requires testing |
+| **506** | Reversal of 505 | Cancel 505 |
+| **511** | Free-of-charge delivery | Free items from vendor |
+| **512** | Reversal of 511 | Cancel 511 |
+
+✅ **Example Use Case:**  
+- **501:** Supplier sends **extra goods without PO**.
+- **511:** Vendor provides **free promotional samples**.
+
+---
+
+**🔹 6** – Goods Issue for Delivery (Sales & Returns)  
+
+| **Movement Type** | **Description** | **Use Case** |
+|------------------|----------------|--------------|
+| **601** | Goods issue for **delivery to a customer** | Standard outbound delivery |
+| **602** | Reversal of 601 | Cancel 601 |
+| **603** | Stock transfer to another plant | Move stock out |
+| **604** | Reversal of 603 | Cancel 603 |
+| **621** | Return delivery to vendor | Send back defective stock |
+| **622** | Reversal of 621 | Cancel 621 |
+
+✅ **Example Use Case:**  
+- **601:** **Ship products** to customers.
+- **621:** **Return damaged goods** to supplier.
+
+---
+
+**🔹 7** – Physical Inventory Adjustment  
+
+| **Movement Type** | **Description** | **Use Case** |
+|------------------|----------------|--------------|
+| **701** | GR after physical inventory | Gain in inventory count |
+| **702** | GI after physical inventory | Loss in inventory count |
+| **711** | GR after recounting | Adjust positive inventory |
+| **712** | GI after recounting | Adjust negative inventory |
+| **721** | Transfer from unrestricted to Quality Inspection | Mark stock for testing |
+| **722** | Transfer from Quality Inspection to unrestricted | Release stock |
+
+
+- **1** → **Goods Receipt (GR)**  
+- **2** → **Goods Issue (GI)**  
+- **3** → **Stock Transfer (Plant-to-Plant)**  
+- **4** → **Stock Transfer (Storage Location, Quality, Blocked)**  
+- **5** → **GR Without PO & Free Goods**  
+- **6** → **Delivery & Returns**  
+- **7** → **Physical Inventory Adjustments**  
+
