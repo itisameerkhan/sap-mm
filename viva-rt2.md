@@ -1772,3 +1772,150 @@ movement type controls many functions:
 - **6** → **Delivery & Returns**  
 - **7** → **Physical Inventory Adjustments**  
 
+
+## ⭐ GOODS RECEIPT 
+
+A Goods Receipt (GR) is a goods movement with which the receipt of goods from a vendor or from production which is posted. A goods receipt leads to an increase in warehouse stock. All transactions that bring about a
+
+* change in stock are entered real time in SAP R/3
+
+* Stock is updated real time at the time of posting of a goods receipt.
+
+* Goods receipts are processed against the open purchase order quantity.
+
+* The open purchase order quantity is the quantity still to be delivered for an ordered item. It is calculated as the difference between the quantity ordered and the quantity delivered to date.
+
+types 
+
+* planned goods receipt 
+
+* unplanned goods receipt 
+
+---
+* 1️⃣ Planned Goods Receipt – GR against a reference document (e.g., Purchase Order, Production Order).
+
+* 2️⃣ Unplanned Goods Receipt – GR without a reference document (e.g., Direct Stock Entry, Free-of-Charge Deliveries).
+
+**PLANNED GOODS RECEIPT**
+
+* planned goods receipt used purchase orders, production order, reservation 
+
+
+**GOODS RECEIPT WITH REFERENCE TO PURCHASE ORDER**
+
+**EFFECTS**
+
+* Material document is created
+
+* Accounting document is created if the goods movement is relevant for Accounting.
+* Stock & Consumption A/c updated
+
+* Stock and value updated in material master
+
+* PO /PO history update
+
+* Inspection lot is created for QM relevant materials.
+
+---
+
+## ⭐ STOCK TYPES 
+
+* UNRESTRICTRED STOCK 
+
+* QUALITY INSPECTION STOCK 
+
+* BLCKED STOCK 
+
+
+goods receipt can be done 1 step and 2 step 
+
+In the case of 1-step process, materials are directly taken into stock or posted to consumption based
+upon the nature of purchase order. Goods receipt is posted with Movement type 101.
+
+In the case of 2-step process, materials are taken to GR blocked stock and are subsequently taken to stock. Goods receipt is done using movement types 103 + 105 if the materials are to be posted to non-valuated GR blocked stock and subsequently posted to warehouse stock.
+
+**REFERENCE DOCUMENT FOR GOODS RECEIPT**
+
+* purchase order 
+
+* production order 
+
+* reservation 
+* inbound delivery 
+* outbound delivery 
+
+---
+**Accounting entry for stock material**
+* Stock account - Material (BSX): Debit
+
+* GRI/IR clearing - Material (WRX): Credit
+
+**Accounting entry for account assigned PO**
+* Consumption account/Asset account: Debit
+
+* GRI/IR clearing—Material (WRX): Credit
+
+![demo](./photos/27.png)
+![demo](./photos/28.png)
+![demo](./photos/29.png)
+
+**Goods Movement**: A physical or logical movement of materials leading to a change in stock levels
+or resulting in the consumption of the material.
+
+**Goods Issue**: A reduction in warehouse stock due to a withdrawal of stock or the delivery of goods
+to a customer.
+
+**Movement Type**: The movement type in SAP R/3 system is a three digit key used to differentiate between goods movements. Examples of such goods movements are goods receipts, goods issues, or transfer posting.
+
+* Goods Issue (Gl) is a type of goods movement with which the materials are issued from the
+warehouse.
+
+* Goods Issue leads to a decrease in warehouse stock.
+
++ Stock is updated real time at the time of posting of goods Issue.
+
++ Accounting document is created if the goods movement is relevant for accounting.
+
+
+### ⚡ GOODS ISSUE 
+
+Goods Issue (GI) in SAP MM (Materials Management) is the process of removing stock from inventory for consumption, delivery, or transfer. It decreases the stock quantity and affects the financial accounting (FI) and inventory management (IM).
+
+* planned goods issue 
+
+* unplanned goods issue 
+* goods issue with reference 
+* goods issue without reference 
+
+![demo](./photos/30.png)
+
+A goods issue has the following results in the system:
++ Material document is created
+
++ Accounting document is created (if the goods movement is relevant for accounting)
++ Goods receipt/issue slip is created
++ Stock update
++ Update of G/L accounts
++ Consumption update
++ Reservation update
++ Order update
++ Transfer requirement is created when the Warehouse Management System is connected
++ Inspection lot is created when QM is connected
+
+## ⭐ STOCK TRANSFER 
+
+A transfer posting usually refers to a change in a material's stock (for example, release from quality  inspection, accepting consignment material). In a transfer posting, the material can remain in its original
+storage bin or be transferred.
+
+
+Stock transfers can occur either within one plant or between two plants or company codes. 
+
+Stock transfers and transfer postings are used to represent organizational-relevant transfers within the company (for example, decentralized storage). 
+
+![demo](./photos/31.png)
+
+Stock transfers can occur at three different levels:
++ Stock transfer from company code to company code
+
++ Stock transfer from plant to plant
++ Stock transfer from storage location to storage location (in the plant)
