@@ -1919,3 +1919,89 @@ Stock transfers can occur at three different levels:
 
 + Stock transfer from plant to plant
 + Stock transfer from storage location to storage location (in the plant)
+
+---
+
+## ⭐ PIPELINE MATERIAL 
+
+* material type - PIPE
+
+Depending on the system configuration, a material can be withdrawn only from the pipeline or, in addition to
+the pipeline, normal stocks of the material can also be managed.
+
+Materials with Material Type PIPE:
++ Pipeline handling is mandatory for materials with material type PIPE
+
++ They are neither procured nor planned. They can be withdrawn from the pipeline at any time and in
+any quantity.
++ They are not stored or kept in stock. No physical inventory is taken.
++ Pipeline movements are mandatory in all valuation areas; i.e. no other goods movements may be posted.
+
+Other Material Types:
+For each material type, you can specify in the valuation area whether pipeline movements are:
++ Mandatory
+
++ Allowed
+
+If pipeline movements are not mandatory but allowed, the material can be kept in stock and both pipeline and other movements can be posted.
+
+A material of this type can be withdrawn from your company’s own stock, from consignment stock, or from
+the pipeline.
+
+### ⚡Third-Party Processing
+
++ In third-party processing, you place a purchase order with a vendor to deliver goods or perform a service
+for a customer (third party).
+
++ This means that your company forward the order to an external vendor who then sends the material
+directly to the customer and invoices you.
+
+
+* entering a sales order 
+
+* entering purchase order to vendor 
+* delivery goods to customer 
+* entering a vendor invoice 
+* creating a billing document for the customer 
+
+![demo](https://sapmm.wdfiles.com/local--files/item-category/Item%20Category.JPG)
+
+
+| **Special Procurement Type**    | **Special Stock Indicator** |
+|----------------------------------|-----------------------------|
+| **Consignment**                  | **K**                       |
+| **Subcontracting**               | **L**                       |
+| **Third-Party Procurement**      | **S**                       |
+| **Stock Transfer (Intra-Company)**| **T**                       |
+| **Pipeline**                     | **P**                       |
+| **Project Stock**                | **Q**                       |
+| **Returnable Transport Packaging (RTP)** | **N**                 |
+| **Sales Order Stock**            | **E**                       |
+
+
+The transfer of stock using a stock transport order has the following advantages over the transfer of stock
+without a stock transport order:
++ A goods receipt can be planned in the receiving plant.
+
++ You can enter a vendor (freight vendor) in the stock transport order.
++ Delivery costs can be entered in the stock transport order.
++ The stock transfer order is part of MRP: Purchase requisitions that were created in MRP can be
+converted into stock transport orders.
++ The goods issue (Gl) can be entered using a delivery via Shipping (LE-SHP). For the goods issue in
+SD, a replenishment delivery is created.
++ The goods receipt (GR) can be posted directly to consumption.
++ The entire process can be monitored via the purchase order history.
+
+
+![demo](./photos/32.png)
+
+## ⭐ PHYSICAL INVENTORY 
+
+**Preparation**: In this step the physical inventory document is created, materials are blocked for posting and
+the printout of the physical inventory document is distributed.
+
+**Count of Inventory**: In this step, the inventory is counted and updated in the hardcopy of physical
+inventory document and then transferred to the system
+
+**Inventory check**: In this step, the difference between the actual and system count is checked and if the difference is acceptable then it is posted which corrects the stock in the system. This changes the quantity
+and value of the stocks.
