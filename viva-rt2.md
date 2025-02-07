@@ -2221,3 +2221,101 @@ Depending on how the system is configured, the class is assigned to one of the c
 + 023 for batches at material level/client level
 
 ![demo](./photos/34.png)
+
+## ⭐ INVOICE VERIFICATION 
+
+Invoice verification is a procedure which is the last step in material procurement where invoice from vendor is entered in the
+system and information is passed on to finance application for vendor payment.
+Invoice is a legal document which contains item, item description, freight, discounts, taxes etc.
+Purchase department verifies the content in vendor invoice with preceding documents like po, goods receipt and posts the
+invoice.
+
+Invoice posting updates po history and also if applicable the valuation price in material master record.
+
+Invoice posting creates a mm invoice document and a fi invoice document.
+
+We can have the gr based invoice verification ticked on the po or it can be blank.
+
+If gr based iv is ticked:
+
+- System will compare the data between PO, GR and invoice document.
+
+- Posting of the gr document is mandatory before we can post the invoice.
+
+If gr based iv is not ticked:
+
+- System will compare the po document and the invoice document.
+
+- Invoice document can be posted before the gr is posted.
+
+
+**Standard Price:**
+
+In case of materials valuated with standard price, the system posts the difference in PO or Invoice price with
+Material master price to price difference account.
+
+This results in no change to the value and price of the material.
+
+**Moving Average Price**:
+
+Materials valuated with moving average price, the price change happens with the cost at which it is delivered.
+If there is a variance in PO price or Invoice price then the system posts this difference to stock account and
+value and price of the material changes.
+
+### ⚡ PURCHASE ORDER BASED INVOICE VERIFICATION 
+
+Purchase Order (PO)-Based Invoice Verification is a process in SAP MM (Materials Management) that ensures vendor invoices are checked against the corresponding Purchase Order (PO) and Goods Receipt (GR) before payment is made. This helps maintain accuracy and prevents overpayments or fraud.
+
+**Purchase Order (PO) Creation:**
+
+The buyer creates a PO for materials/services with price, quantity, and terms.
+
+**Goods Receipt (GR) Posting:**
+
+When materials are received, a GR is created, updating stock and generating an accounting entry.
+
+**Invoice Receipt (IR):**
+
+The vendor sends an invoice for the delivered materials/services.
+The invoice is entered in SAP using transaction code MIRO.
+
+**Three-Way Matching:**
+
+The system checks if the invoice details match the corresponding PO and GR:
+PO Price = Invoice Price ✅
+PO Quantity = GR Quantity = Invoice Quantity ✅
+
+**Posting the Invoice:**
+
+If the invoice matches the PO and GR, it is posted and liability is created against the vendor.
+If discrepancies exist, they must be resolved before posting.
+
+**Payment Processing:**
+
+The finance team processes vendor payments via F110 (Automatic Payment Run) or manual payments.
+
+## ⭐ BLANKET PURCHASE ORDER 
+
+A purchase order with a validity period and limits for the simplified procurement of materials or services.
+
+A longer-term blanket purchase order enables you to procure different materials or services from a vendor
+up to a specified maximum value.
+
+The nature of the materials or services is such that the cost and administrative effort involved in processing
+individual purchase orders are too high in relation to their value.
+
+A blanket purchase order contains only a short text and a validity period. It does not contain specific
+materials or services.
+
+Blanket purchase orders have the item category B and document type FO.
+## ⭐ SUBSEQUENT CREDIT AND DEBIT 
+
+Subsequent Debit/Credit: This is a functionality in invoice verification which is used to handle scenario which
+happens when vendor has send a second invoice or credit memo for an already invoice PO because the first invoice
+had charges which are either too high or too low.
+
++ The pre-requisite for this functionality is that the first invoice is posted and PO history is updated.
+
++ Subsequent debit/credit is posted with reference to PO and it changes the PO value but not the PO quantity.
+
+## ⭐ INVOICING PLAN 
