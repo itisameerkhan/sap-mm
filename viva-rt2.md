@@ -1405,6 +1405,9 @@ Materials are delivered directly to the customer by your vendor, skipping your w
 
 Sales Order Stock is a special stock type in SAP that is reserved for a specific sales order. It ensures that the materials procured or produced for a particular customer’s order are exclusively used to fulfill that order, preventing their use for other purposes.
 
+**STOCK IN TRANSIT**
+
+Stock in Transit (SIT) refers to the materials that are physically moving from one plant or storage location to another but have not yet arrived at the destination. The stock is still owned by the sending plant until it is received.
 
 
 | **Special Procurement Type** | **Description** |
