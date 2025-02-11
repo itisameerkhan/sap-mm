@@ -2319,3 +2319,241 @@ had charges which are either too high or too low.
 + Subsequent debit/credit is posted with reference to PO and it changes the PO value but not the PO quantity.
 
 ## ⭐ INVOICING PLAN 
+
+An Invoicing Plan in SAP MM is a method used for automatic invoice generation for planned procurement scenarios, such as rent, subscriptions, leasing, or milestone-based payments. It allows invoices to be processed at predefined intervals without requiring a goods receipt (GR).
+
+* ✅ No Goods Receipt (GR) Required – Payment is based on time/milestones, not material movement.
+
+* ✅ Automated Invoice Generation – SAP automatically triggers invoices based on the plan.
+* ✅ Used for Service & Lease Contracts – Ideal for rentals, long-term service agreements, and projects.
+* ✅ Linked to Purchase Order (PO) – Invoices are posted against the PO at scheduled dates.
+
+
+There are two main types of invoicing plans:
+* 1️⃣ Periodic Invoicing Plan
+
+* 2️⃣ Partial (Milestone) Invoicing Plan
+
+
+**1️⃣ Periodic Invoicing Plan**
+
+Invoices are created at regular intervals (e.g., monthly, quarterly, annually).
+Commonly used for subscriptions, rental contracts, and maintenance services.
+Each invoice is for a fixed amount, spread evenly across the contract period.
+Example:
+
+1. A company rents an office space for ₹12,00,000 per year.
+
+2. A Periodic Invoicing Plan is set up for monthly payments.
+3. SAP will automatically create an invoice of ₹1,00,000 every month for 12 months.
+
+ **Partial (Milestone) Invoicing Plan**
+
+Invoices are generated at specific milestones in a project.
+Commonly used in construction projects, large equipment purchases, and consulting services.
+Each milestone invoice can have different amounts.
+
+A company orders machinery for ₹10,00,000 with 3 milestone payments:
+
+1. 30% upfront payment → ₹3,00,000
+
+2. 50% after delivery → ₹5,00,000
+
+3. 20% after installation → ₹2,00,000
+
+
+**How to Configure an Invoicing Plan in SAP MM?**
+
+1. Go to Transaction Code ME21N – Create a Purchase Order (PO).
+
+2. Select Item Category `B` (Limit) or `D` (Service).
+3. Navigate to "Invoice" Tab – Define the invoicing plan type (Periodic or Milestone).
+4. Set Dates and Payment Percentages.
+5. Save the PO – SAP will trigger invoices automatically based on the schedule.
+
+## ⭐ SUBSEQUENT CREDIT AND DEBIT 
+
+In SAP MM (Materials Management), Subsequent Debit and Subsequent Credit are used in Invoice Verification to adjust previously posted invoices without reversing the original invoice. These adjustments increase or decrease the invoice amount while maintaining a record of the original transaction.
+
+* A company purchases 100 units of raw material for ₹10,000.
+
+* The vendor later charges an extra ₹500 for freight costs that were missed in the original invoice.
+* Instead of reversing the original invoice, a Subsequent Debit of ₹500 is posted.
+
+**SUBSEQUENT CREDIT** 
+
+A Subsequent Credit is used when a price adjustment or discount needs to be applied after the original invoice has been posted.
+
+## ⭐ CREDIT MEMO 
+
+A Credit Memo in SAP MM is used when a vendor issues a refund or reduces the invoice amount due to overcharges, returns, or pricing errors. It reduces the liability of the company towards the vendor and is processed through Invoice Verification (MIRO) in SAP.
+
+> ![NOTE]
+> REVERSAL OF INVOICE 
+
+* when you post a credit memo, ne system makes a number Of Checks.
+In the R/3 system, a credit memo is the reversal of an invoice. In the same way as the system assumes
+that a corresponding goods receipt was posted or is expected for an invoice, the system assumes that a
+credit memo is linked to the reversal of a goods receipt. The credit memo is therefore managed on the
+GR /IR clearing account.
+
+* Invoice reversal is a special form of credit memo. The system automatically determines the credit memo
+amount and the credit memo quantity from the invoice, so that there is no variance between the invoice and
+the credit memo. The postings made when you reverse an invoice follow the same rules as credit memo
+postings. This means that an invoice reversal does not necessarily reverse the postings made when the
+invoice was posted.
+
+## ⭐ ERS 
+
+**You can settle goods receipts directly without receiving an invoice from the vendor. The system can
+generate the corresponding invoices and post them. A vendor invoice is no longer required.**
+
+You can automatically send the settlement documents created to the vendors.
+
+Evaluated Receipt Settlement (ERS) is particularly suitable for creating settlement documents at regular
+intervals.
+
+ERS has the following advantages:
+
+Purchasing transactions are closed more quickly.
+
+Communication errors are avoided.
+
+There are no price and quantity variances in Invoice Verification.
+
+
+* Purchasing transaction are closed more quickly 
+
+* Communication error are avoided  
+* There is no price and quantity variance in invoice verification 
+
+---
+
+* ERS (Evaluated Receipt Settlement) is an automatic invoice settlement process where SAP generates invoices based on Goods Receipt (GR) without requiring a separate invoice from the vendor. This process is mainly used to reduce manual effort in invoice verification.
+
+* Evaluated receipt settlement must be flagged in the purchase order item.
+
+* The vendor must be flagged as being subject to ERS in the vendor master record.
+
+* The goods receipt must refer to a purchase order.
+
+* Goods-receipt-based Invoice Verification must be defined for the purchase order item.
+
+* A tax code must have been maintained in the purchase order item.
+
+* The order price of the materials may not be an estimated price.
+
+* If you flag a vendor as being subject to ERS, the system sets the ERS indicator as a default in each item
+when you create a purchase order for the vendor. You can prevent this happening for certain vendors by
+flagging the info record for the material and the vendor as not being subject to ERS.
+
+* In purchasing, you can delete the default ERS indicator in a purchase order item.
+
+![demo](./photos/35.png)
+
+### ⚡ VALUATION CLASS 
+
+A Valuation Class in SAP MM is used to determine the GL (General Ledger) account for inventory posting. It helps in automatic account determination when posting Goods Receipt (GR), Invoice Verification (MIRO), and Goods Issue (GI).
+
+Each material is assigned a valuation class in the Material Master, which links the material to a specific GL account in Financial Accounting (FI).
+
+### ⚡ SPLIT VALUATION 
+
+Split Valuation in SAP MM allows a single material to have different valuations (prices) based on certain criteria, such as:
+
+* ✅ Quality (e.g., High-Grade vs. Low-Grade)
+
+* ✅ Origin (e.g., Domestic vs. Imported Materials)
+* ✅ Batch (e.g., Old Stock vs. New Stock)
+* ✅ Procurement Type (e.g., In-House Production vs. External Procurement) 
+
+This means that instead of maintaining one price for a material, SAP can maintain multiple prices based on different valuation types.
+
+## ⭐ AUTOMATIC ACCOUNT DETERMINATION 
+
+In SAP MM, BSX and WRX are GL account posting keys used in automatic account determination during goods movements.
+
+Automatic account determination is a process to pick suitable G/L account when goods movement has
+been taken place.
+
+By configuring automatic account determination settings, system will determine g/l account for posting
+according to goods movement type automatically
+Objective:
+
+* Understand how to configure the system for automatic account determination:
+
+* Postings are made to G/L accounts automatically in the case of inventory management transactions
+relevant to financial accounting.
+
+### ⚡ TRANSFER POSTING 
+
+✅ What is Transfer Posting?
+
+Transfer Posting in SAP MM refers to the process of changing the status or location of materials without a physical movement or with a movement within or across locations, plants, or company codes.
+
+📌 Key Features:
+
+* Used for stock status updates, reclassifications, or location transfers.
+   May or may not involve financial (accounting) impact.
+Handled via movement types in SAP.
+
+
+Factors which influence account determination are the following:
+
+1. Chart of accounts
+
+2. Valuation area ( plant or company code)
+
+3. Valuation class
+
+4. Valuation modifier or transaction key
+
+5. General modifier or account modifier
+
+![demo](./photos/37.png)
+![demo](./photos/39.png)
+
+
+##  ⭐MATERIAL PLANNING 
+
+Material Planning in SAP MM ensures the right quantity of materials is available at the right time to meet production and procurement needs. It helps in avoiding stock shortages or excess inventory, optimizing costs and efficiency.
+
+
+## ⚡ CONSUMPTION BASED PLANNING 
+
+Consumption-Based Planning (CBP) is an MRP strategy in SAP MM where materials are replenished based on past consumption patterns, without considering sales orders or production schedules.
+
+👉 Best for: Frequently used items with stable demand (e.g., office supplies, spare parts, raw materials).
+👉 Key Benefit: Reduces manual intervention in procurement and optimizes stock levels.
+
+## ⚡ TIME BASED PLANNING 
+
+Time-Based Planning in SAP MM is a material planning strategy where procurement or replenishment happens at fixed time intervals rather than based on stock levels or consumption patterns.
+
+## ⭐ FORECASE BASED PLANNING 
+
+Forecast-Based Planning (FBP) is a method in SAP MM where the system predicts future material demand based on past consumption data and automatically plans procurement.
+
+👉 Why use it? To avoid stockouts and reduce excess inventory.
+👉 Where is it used? For materials with fluctuating demand (e.g., seasonal items, lubricants, raw materials).
+
+## ⭐ MATERIAL REQUIREMENT PLANNING MRP 
+
+MRP (Material Requirements Planning) in SAP MM is a process that ensures materials are available for production and customer demand while keeping stock levels optimized.
+
+👉 Purpose:
+
+Avoid stock shortages (ensures materials are available).
+Prevent overstocking (controls inventory cost).
+Automate purchase requisitions (PRs) and planned orders.
+
+👉 Where is it used?
+
+Manufacturing industries (e.g., raw materials, components).
+Retail & logistics (e.g., demand-based procurement).
+
+* levels 
+
+1. MRP
+
+2. plant 
